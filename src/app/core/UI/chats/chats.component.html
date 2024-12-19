@@ -1,0 +1,53 @@
+<div class="flex justify-between items-center w-full h-14 px-6 py-3 mb-3">
+    <div class="flex items-center">
+        <a routerLink="/">
+            <lucide-icon size="18" [name]="arrowLeftIcon"></lucide-icon>
+        </a>
+        <h4 class="text-sm max-w-20 truncate font-semibold ms-2">ayush.k.mandal</h4>
+    </div>
+    <div class="flex items-center">
+        <button class="me-1">
+            <lucide-icon size="18" [name]="newChatIcon"></lucide-icon>
+        </button>
+        <div class="dropdown dropdown-left dropdown-bottom">
+            <div tabindex="0" role="button" class="m-1 font-semibold flex p-1">
+                <div class="h-1 w-1 bg-black rounded-full"></div>
+                <div class="h-1 w-1 bg-black rounded-full mx-0.5"></div>
+                <div class="h-1 w-1 bg-black rounded-full"></div>
+            </div>
+            <ul tabindex="0" class="dropdown-content menu menu-sm bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                <li>
+                    <button (click)="toggleSelectChats=!toggleSelectChats">
+                        <lucide-icon size="18" [name]="listIcon"></lucide-icon> Select chats
+                    </button>
+                </li>
+                <li>
+                    <a>
+                        <lucide-icon size="18" [name]="drillIcon"></lucide-icon> Tools
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<app-searchbox placeholder="Search your chats" (search)="searchText = $event"></app-searchbox>
+
+<!-- ===============chat list============ -->
+<ul>
+
+    @for (item of items | search: searchText; track $index) {
+    <li class="px-6 flex items-center w-full mb-4">
+        <input type="checkbox" class="checkbox checkbox-xs checkbox-secondary me-4"
+            [ngClass]="{'hidden':!toggleSelectChats}" name="select-user" id="user-id">
+        <div class="flex justify-between items-center w-full">
+            <div class="flex items-center">
+                <app-avatar [isOnline]="item.online" [isProfilePic]="item.isProfilePic" width="w-7"
+                    [text]="item.fullName[0]"></app-avatar>
+                <p class="text-sm font-semibold ms-3">{{item.fullName}}</p>
+            </div>
+            <app-camera></app-camera>
+        </div>
+    </li>
+    }
+</ul>

@@ -1,1 +1,5 @@
-<p>searchbox works!</p>
+<label class="input input-sm flex items-center input-bordered mb-6 mx-6 rounded-full">
+    <input type="search" name="search" class="grow-1 w-full" [placeholder]="placeholder" [(ngModel)]="searchText"
+        (input)="onSearch()">
+    <lucide-icon size="18" [name]="searchIcon" class="text-base-300"></lucide-icon>
+</label>

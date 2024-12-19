@@ -1,0 +1,11 @@
+<div class="avatar" [ngClass]="{'placeholder': !isProfilePic,'online':isOnline,'offline':!isOnline}">
+    @if (isProfilePic) {
+    <div class="ring-primary ring-offset-base-100 rounded-full ring ring-offset-2" [ngClass]="width">
+        <img [src]="profilePic" />
+    </div>
+    }@else {
+    <div class="ring-primary ring-offset-base-100 rounded-full ring ring-offset-0" [ngClass]="width">
+        <span class="text-xl">{{text}}</span>
+    </div>
+    }
+</div>
