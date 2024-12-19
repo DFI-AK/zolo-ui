@@ -1,0 +1,43 @@
+<section class="w-full bg-base-100 mb-3">
+    <div class="h-14 flex items-center justify-between px-6">
+        <div class="flex items-center">
+            <app-avatar width="w-6"></app-avatar>
+            <span class="ms-3 font-semibold text-xs">Username</span>
+        </div>
+        <app-button [className]="{'btn-primary':true,'btn-xs':true}" text="Follow"></app-button>
+    </div>
+    <div class="max-h-56 bg-base-300 carousel w-full">
+        <div class="carousel-item w-full">
+            <img src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp" class="w-full"
+                alt="Tailwind CSS Carousel component" />
+        </div>
+        <div class="carousel-item w-full">
+            <img src="https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.webp" class="w-full"
+                alt="Tailwind CSS Carousel component" />
+        </div>
+        <div class="carousel-item w-full">
+            <img src="https://img.daisyui.com/images/stock/photo-1494253109108-2e30c049369b.webp" class="w-full"
+                alt="Tailwind CSS Carousel component" />
+        </div>
+        <div class="carousel-item w-full">
+            <img src="https://img.daisyui.com/images/stock/photo-1559181567-c3190ca9959b.webp" class="w-full"
+                alt="Tailwind CSS Carousel component" />
+        </div>
+    </div>
+    <div class="flex w-full justify-between items-center py-2 px-6 h-10">
+        <div class="flex">
+            <button class="me-2.5 flex">
+                <lucide-icon size="18" [name]="likeIcon"></lucide-icon> <span class="text-xs ms-1.5">20</span>
+            </button>
+            <button class="me-2.5 flex">
+                <lucide-icon size="18" [name]="commentIcon"></lucide-icon> <span class="text-xs ms-1.5">120</span>
+            </button>
+            <button class="me-2.5 flex">
+                <lucide-icon size="18" [name]="shareIcon"></lucide-icon>
+            </button>
+        </div>
+        <button>
+            <lucide-icon size="18" [name]="bookmarkIcon"></lucide-icon>
+        </button>
+    </div>
+</section>
