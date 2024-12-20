@@ -4,6 +4,7 @@ import { UserProfileComponent } from '../../UI/user-profile/user-profile.compone
 import { PostTileComponent } from './components/post-tile/post-tile.component';
 import { ReelsTileComponent } from './components/reels-tile/reels-tile.component';
 import { TagTileComponent } from './components/tag-tile/tag-tile.component';
+import { SettingsComponent } from './components/settings/settings.component';
 
 const routes: Routes = [
   {
@@ -11,11 +12,12 @@ const routes: Routes = [
     component: UserProfileComponent,
     title: "Profile",
     children: [
-      { path: "images", component: PostTileComponent, data: { tab: "Images" } },
-      { path: "reels", component: ReelsTileComponent, data: { tab: "Reels" } },
-      { path: "tag", component: TagTileComponent, data: { tab: "Tag" } },
+      { path: "images", component: PostTileComponent },
+      { path: "reels", component: ReelsTileComponent },
+      { path: "tag", component: TagTileComponent },
     ]
   },
+  { path: "settings", component: SettingsComponent },
 ];
 
 @NgModule({

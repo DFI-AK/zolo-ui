@@ -1,0 +1,66 @@
+<div class="h-full w-full bg-base-200/15 relative">
+    <!-- ==============Header============= -->
+    <div
+        class="h-14 w-full flex items-center px-6 py-2 justify-between sticky top-0 border-b border-solid border-base-200 z-10 bg-base-100">
+        <div class="flex items-center">
+            <button routerLink="/chats" class="me-2">
+                <lucide-icon size="18" [name]="arrowLeft"></lucide-icon>
+            </button>
+            <app-avatar width="w-6"></app-avatar>
+            <span class="text-xs font-semibold ms-3">Username</span>
+        </div>
+        <div>
+            <button class="me-2">
+                <lucide-icon size="18" [name]="callIcon"></lucide-icon>
+            </button>
+            <button>
+                <lucide-icon size="18" [name]="videoIcon"></lucide-icon>
+            </button>
+        </div>
+    </div>
+
+    <!-- ==================Chats================== -->
+    <div appScrollToEnd class="w-full h-[calc(100vh-152px)] overflow-y-auto bg-base-100 z-[1] px-3 chat-box">
+        @for (item of test; track $index) {
+        <div class="chat chat-start">
+            <div class="chat-image avatar">
+                <div class="w-10 rounded-full">
+                    <img alt="Tailwind CSS chat bubble component"
+                        src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                </div>
+            </div>
+            <div class="chat-header">
+                Obi-Wan Kenobi
+                <time class="text-xs opacity-50">12:45</time>
+            </div>
+            <div class="chat-bubble chat-bubble-primary">You were the Chosen One!</div>
+            <div class="chat-footer opacity-50">Delivered</div>
+        </div>
+        <div class="chat chat-end">
+            <div class="chat-image avatar">
+                <div class="w-10 rounded-full">
+                    <img alt="Tailwind CSS chat bubble component"
+                        src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                </div>
+            </div>
+            <div class="chat-header">
+                Anakin
+                <time class="text-xs opacity-50">12:46</time>
+            </div>
+            <div class="chat-bubble chat-bubble-secondary">I hate you!</div>
+            <div class="chat-footer opacity-50">Seen at 12:46</div>
+        </div>
+        }
+    </div>
+
+    <!-- ==============Message text box============= -->
+    <form [formGroup]="messageForm" (ngSubmit)="sendMessage()"
+        class="h-24 w-full bg-base-100 sticky bottom-0 left-0 px-2 flex items-center justify-between gap-x-2">
+        <textarea formControlName="message" name="message" id="message"
+            class="textarea w-full textarea-md textarea-bordered resize-none leading-normal"
+            placeholder="Type here..."></textarea>
+        <button [disabled]="messageForm.invalid" type="submit" class="btn btn-primary btn-sm">
+            <lucide-icon size="18" [name]="sendIcon"></lucide-icon>
+        </button>
+    </form>
+</div>

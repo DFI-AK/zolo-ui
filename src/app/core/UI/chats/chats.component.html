@@ -1,5 +1,5 @@
 <div class="h-screen bg-base-100">
-    <div class="flex justify-between items-center w-full h-14 px-6 py-3 mb-3">
+    <div class="flex justify-between items-center w-full h-14 px-6 py-3 sticky top-0 z-30 bg-base-100">
         <div class="flex items-center">
             <a routerLink="/">
                 <lucide-icon size="18" [name]="arrowLeftIcon"></lucide-icon>
@@ -32,13 +32,16 @@
         </div>
     </div>
 
-    <app-searchbox placeholder="Search your chats" (search)="searchText = $event"></app-searchbox>
+    <div class="px-6 sticky top-14 z-20 bg-base-100 py-0.5 mb-3">
+        <app-searchbox placeholder="Search your chats" (search)="searchText = $event"></app-searchbox>
+    </div>
 
     <!-- ===============chat list============ -->
-    <ul>
+    <ul class="pb-4">
 
         @for (item of items | search: searchText; track $index) {
-        <li class="px-6 flex items-center w-full mb-4">
+        <li class="px-6 flex items-center w-full mb-4 cursor-pointer" routerLink="message"
+            [queryParams]="{'uid':item.uid}">
             <input type="checkbox" class="checkbox checkbox-xs checkbox-secondary me-4"
                 [ngClass]="{'hidden':!toggleSelectChats}" name="select-user" id="user-id">
             <div class="flex justify-between items-center w-full">
@@ -50,6 +53,8 @@
                 <app-camera></app-camera>
             </div>
         </li>
+        }@empty {
+        <li class="text-sm text-base-300 w-full text-center">No chats found for {{searchText}}</li>
         }
     </ul>
 </div>

@@ -1,6 +1,6 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { Archive, ArrowLeft, Camera, Drill, List, LucideAngularModule, SquarePlus, Trash2 } from 'lucide-angular';
+import { Archive, ArrowLeft, Drill, List, LucideAngularModule, SquarePlus, Trash2 } from 'lucide-angular';
 import { AvatarComponent } from "../avatar/avatar.component";
 import { WebcamModule } from 'ngx-webcam';
 import { CameraComponent } from "../camera/camera.component";
@@ -28,12 +28,12 @@ export class ChatsComponent {
   public searchText: string = '';
 
   items = [
-    { fullName: "Ayush", online: true, isProfilePic: true },
-    { fullName: "Abhishek Verma", online: true, isProfilePic: false },
-    { fullName: "Anas Saifi", online: false, isProfilePic: false },
-    { fullName: "Lakshman", online: true, isProfilePic: false },
-    { fullName: "Dhirendar", online: false, isProfilePic: true },
-    { fullName: "Aman singh", online: true, isProfilePic: false },
+    { fullName: "Ayush", online: true, isProfilePic: true, uid: "1" },
+    { fullName: "Abhishek Verma", online: true, isProfilePic: false, uid: "2" },
+    { fullName: "Anas Saifi", online: false, isProfilePic: false, uid: "3" },
+    { fullName: "Lakshman", online: true, isProfilePic: false, uid: "4" },
+    { fullName: "Dhirendar", online: false, isProfilePic: true, uid: "5" },
+    { fullName: "Aman singh", online: true, isProfilePic: false, uid: "6" }
   ];
 
 }
